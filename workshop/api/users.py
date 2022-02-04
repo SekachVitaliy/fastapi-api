@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import APIRouter, Depends, status
 from workshop.models.users import BaseUsers, UpdateUsers, Update_fields_Users
 from workshop.services.users import UserService
@@ -10,6 +11,11 @@ router = APIRouter(
 @router.post('/', response_model=BaseUsers, status_code=status.HTTP_201_CREATED)
 def add_user(user: UpdateUsers, service: UserService = Depends()):
     return service.add_user(user)
+
+
+@router.get('-list', response_model=List[BaseUsers])
+def get_user_list(service: UserService = Depends()):
+    return service.get_list()
 
 
 @router.get('/{user_id}', response_model=BaseUsers, status_code=status.HTTP_200_OK)

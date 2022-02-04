@@ -3,8 +3,7 @@ import os
 import pytest
 
 # Устанавливаем `os.environ`, чтобы использовать тестовую БД
-os.environ['TESTING'] = 'True'
-
+os.environ['TESTING'] = 'TRUE'
 from alembic import command
 from alembic.config import Config
 from workshop.settings import settings

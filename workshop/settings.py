@@ -16,7 +16,7 @@ if TESTING:
 class Settings(BaseSettings):
     server_host: str = '127.0.0.1'
     server_port: int = '8000'
-    db_url: str = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}"
+    db_url: str = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:5432/{DB_NAME}"
 
 
 settings = Settings(

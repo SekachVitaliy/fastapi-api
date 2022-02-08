@@ -1,5 +1,5 @@
 import uvicorn
-from workshop.settings import settings
+from settings import settings
 
 
 uvicorn.run(

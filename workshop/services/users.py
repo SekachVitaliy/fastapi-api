@@ -44,9 +44,9 @@ class UserService:
         user_to_update_fields = self.get_user(user_id)
         if user.username:
             user_to_update_fields.username = user.username
-        elif user.email:
+        if user.email:
             user_to_update_fields.email = user.email
-        elif user.password:
+        if user.password:
             user_to_update_fields.password = bcrypt.hashpw(user.password.encode(), bcrypt.gensalt())
         self.session.commit()
         return user_to_update_fields
